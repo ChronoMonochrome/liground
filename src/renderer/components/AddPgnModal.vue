@@ -105,7 +105,7 @@ export default {
         }
 
         // convert CRLF to LF
-        data = data.replace(/\r\n/g, '\n')
+        data = data.replace(/\r\n/g, '\n').replace(/\+/g, '').replace(/#/g, '')
         this.convertAndStorePgn(data)
         this.close()
       })
@@ -115,7 +115,7 @@ export default {
         // when input empty, do nothing
       } else {
         // convert CRLF to LF
-        const data = this.pgnString.replace(/\r\n/g, '\n')
+        const data = this.pgnString.replace(/\r\n/g, '\n').replace(/\+/g, '').replace(/#/g, '')
         this.convertAndStorePgn(data)
         this.close()
       }
